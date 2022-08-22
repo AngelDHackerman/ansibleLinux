@@ -1,0 +1,14 @@
+---
+- name: 'Installing and Running apache'
+  hosts: localhost
+
+  tasks: 
+  - name: 'Install apache'
+    dnf:  # dnf is use (between serveral other options) to install modules
+      name: 'httpd'   # This is the name of the module, you can find it on the documentation
+      state: 'latest'  # this is the version and we want to install. 
+
+  - name: 'Start httpd'
+    service: 
+      name: 'httpd'
+      state: started
