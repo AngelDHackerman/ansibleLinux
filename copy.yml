@@ -1,0 +1,13 @@
+---
+- name: 'Copy file from local to remote clients'
+  hosts: all
+
+  tasks:
+  - name: 'Copying file'
+    become: true  # ? Transfer as the current user
+    copy:   # ? Run copy command
+      src: /home/angel/test1.txt  # ? source file that is going to be sent
+      dest: /tmp/
+      owner: root  # it can be another user
+      group: root  # it can be another group
+      mode: 0644   # set the chmod of the file

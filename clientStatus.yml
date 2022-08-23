@@ -1,6 +1,6 @@
 ---
 - name: 'check remote clients connectivity status'
-  hosts: all
+  hosts: all  # this send the order of ping to all the host in the ansible-inventory --list
 
   tasks:
   - name: 'Test connectivity'
