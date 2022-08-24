@@ -1,0 +1,32 @@
+# this playbook will: 
+# 1. install httpd package
+# 2. Start httpd service 
+# 3. Open httpd service port in firewall
+# 4. Restart firewalld service 
+
+# * In the control node excute: sudo ansible-galaxy collection install ansible.posix
+
+---
+- name: 'Setup httpd and open firewalld port'
+  hosts: all
+  tasks: 
+    - name: 'Install apache packages'
+      dnf:  # ? this module is used to install, remove and update packages
+        name: httpd
+        state: present  # ? present or installed = Install; absent or removed = Un-install; latest = Upgrade.
+
+    - name: 'Start httpd'
+      service:  # ? service module: Controls services on remote hosts.
+        name: httpd
+        state: started    # ? started | stopped | reloaded | restarted
+
+    - name: 'Open port 80 for http access'
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+
+    - name: 'Restart firewalld service to load firewall changes'
+      service:
+        name: firewalld
+        state: reloaded
