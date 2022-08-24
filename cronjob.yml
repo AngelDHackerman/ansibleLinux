@@ -1,0 +1,17 @@
+# Make sure crontab is insalled and enabled in the client node. 
+
+---
+- name: 'Create a cron job'
+  hosts: all
+
+  tasks: 
+    - name: 'Scheduled cron:'
+      cron:  # this is the cron module of ansible
+        name: 'This job is scheduled by Ansible'
+        minute: '56'
+        hour: '23'
+        day: '*'
+        month: '*'
+        weekday: '4'
+        user: root
+        job: '/home/angel2/cfile.sh'
