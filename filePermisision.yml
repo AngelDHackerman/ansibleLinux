@@ -1,0 +1,9 @@
+---
+- name: 'Change file permisions'
+  hosts: all
+
+  tasks: 
+  - name: 'Files permisions'
+    file:
+      path: /home/angel2/linux2
+      mode: a+w
