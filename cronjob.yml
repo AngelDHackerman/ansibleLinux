@@ -12,6 +12,6 @@
         hour: '23'
         day: '*'
         month: '*'
-        weekday: '4'
+        weekday: '4'  # sunday is 0, monday is 1
         user: root
         job: '/home/angel2/cfile.sh'

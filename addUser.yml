@@ -1,0 +1,10 @@
+--- 
+- name: 'Playbook for creating users'
+  hosts: all
+
+  tasks:
+    - name: 'Create users'
+      user:  # ? Run user module for account management, and below we'll add the details for the new user
+        name: george
+        home: /home/george
+        shell: /usr/bin/zsh
