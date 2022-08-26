@@ -1,0 +1,14 @@
+---
+- name: Find a process and kill it
+  hosts: all
+
+  tasks: 
+    - name: Get running processes from remote hosts
+      ignore_errors: yes  # ? with this we ignore any kind of message that we might have. 
+      shell: "ps -few | grep top | awk '{print $2}'"  # ? we use top as an example. and we this we registre the number of the task. 
+      register: running_process  # ? with this we register the proccess ID in the variable "running_process"
+
+    - name: Kill running processes
+      ignore_errors: yes
+      shell: "kill {{ item }} "  # ? item is just a variable and its value is in the line below
+      with_items: "{{ running_process.stdout_lines }}"  # ? running_process.stdout_lines, this retrives the value from the variable running_process.

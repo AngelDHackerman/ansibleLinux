@@ -16,5 +16,5 @@
       url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/src/apache-tomcat-9.0.65-src.tar.gz
       dest: /opt/tomcat
       mode: 0755
-      group: root
-      owner: root
+      group: angel
+      owner: angel
