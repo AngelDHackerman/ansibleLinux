@@ -1,0 +1,23 @@
+
+# ! ansible-playbook httpTelnet.yml --start-at-task 'Start httpd'. 
+# above the playbook will ignore the 'Install httpd' task and will start directly with the 'Start httpd' task.
+
+---
+- name: httpd and Telnet 
+  hosts: all
+
+  tasks:
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: present # this install the service httpd
+
+  - name: Start httpd
+    service:
+      name: httpd
+      state: started  # this will start the service httpd  
+
+  - name: Install Telnet
+    yum:
+      name: telnet
+      state: present
