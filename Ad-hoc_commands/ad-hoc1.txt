@@ -1,0 +1,12 @@
+
+      # Ping localhost
+
+ansible localhost -m ping
+
+      # Creating a file on all remote clients 
+
+ansible all -m file -a "path=/home/new_file_created.txt state=touch mode=700"
+
+      # Deleting a file on all remote clients
+
+ansible all -m file -a "path=/home/new_file_created.txt state=absent"
