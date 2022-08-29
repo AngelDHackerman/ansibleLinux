@@ -1,5 +1,5 @@
 # todo: Ansible does not allow us to pass a cleartext password through the user module 
-# ? use this command in node server: ansible-playbook changepass.yml --extra-vars newpassword=abc123. abc123 is the current password that will be set.
+# ? use this command in control node: ansible-playbook changepass.yml --extra-vars newpassword=abc123. abc123 is the current password that will be set.
 # also do this: pip install passlib
 
 
