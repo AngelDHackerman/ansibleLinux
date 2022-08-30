@@ -2,7 +2,7 @@
 - name: Install htttpd package
   yum:
     name: httpd
-    state: started
+    state: present
 
 - name: Start httpd
   service:
