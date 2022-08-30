@@ -1,0 +1,16 @@
+---
+- name: Install some package 
+  hosts: all
+  vars:  # you declare that you are going to use a variable
+    pack: httpd  # this is the name of the variable and the actual value, in this case the package to install.
+
+  tasks:
+    - name: Package install
+      yum:
+        name: "{{ pack }}"  # in this way you invoke the variable created.
+        state: present
+
+    - name: Start service
+      service:
+        name: "{{ pack }}"
+        state: started

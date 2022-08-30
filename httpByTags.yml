@@ -1,6 +1,12 @@
 
-# ? ansible-playbook httpByTags.yml -t i-httpd, this is how you invoke the playbook from the tag.
-# ? ansible-playbook httpByTags.yml --list-tags, show you all the tags in the playbook.
+# this is how you invoke the playbook from the tag.
+# ? ansible-playbook httpByTags.yml -t i-httpd
+
+# show you all the tags in the playbook.
+# ? ansible-playbook httpByTags.yml --list-tags
+
+#  with this you can skip a certain tag.
+# ? ansible-playbook httpByTags.yml --skip-tags i-httpd,
 
 ---
 - name: Setup Apache server
