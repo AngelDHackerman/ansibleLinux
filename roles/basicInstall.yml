@@ -1,0 +1,11 @@
+---
+- name: Install htttpd package
+  yum:
+    name: httpd
+    state: started
+
+- name: Start httpd
+  service:
+    name: httpd
+    state: started
+    
