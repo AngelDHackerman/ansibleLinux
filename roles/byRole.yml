@@ -11,6 +11,6 @@
     - fullinstall
 
 - name: Basic Install
-  hosts: all
+  hosts: localhost
   roles:
     - basicinstall
