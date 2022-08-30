@@ -1,0 +1,15 @@
+---
+- name: Setup Apache server
+  hosts: localhost
+  taks:
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: present
+    tags: i-httpd  # ? this is the name of the tag
+
+  - name: Start httpd
+    service:
+      name: httpd
+      state: started
+    tags: s-httpd  # ? this is the name of the tag
