@@ -1,7 +1,11 @@
+
+# ? ansible-playbook httpByTags.yml -t i-httpd, this is how you invoke the playbook from the tag.
+# ? ansible-playbook httpByTags.yml --list-tags, show you all the tags in the playbook.
+
 ---
 - name: Setup Apache server
   hosts: localhost
-  taks:
+  tasks:
   - name: Install httpd
     yum:
       name: httpd
