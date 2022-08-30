@@ -1,0 +1,16 @@
+# The first 2 plabooks: basiInstall and fullInstall, must be locate in:
+# /etc/ansible/roles/basicinstall/tasks/main.yml
+# /etc/ansible/roles/fullinstall/tasks/main.yml
+
+# ? for readiability I named basicInstall.yml and fullInstall.yml but actually their names has to be main.yml
+
+---
+- name: Full Install
+  hosts: all
+  roles: 
+    - fullinstall
+
+- name: Basic Install
+  hosts: localhosts
+  roles:
+    - basicinstall
