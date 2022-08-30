@@ -2,7 +2,7 @@
 - name: Copy file to remote clients
   hosts: all
   vars:
-    srcfile: /home/angel/someFile
+    srcfile: /home/angel/someFile  # the value of this variable is the file on this path.
   tasks:
 
   - name: Copying file
