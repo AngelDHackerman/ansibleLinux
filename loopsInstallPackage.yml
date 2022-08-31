@@ -1,0 +1,13 @@
+--- 
+- name: Install packages
+  hosts: all
+
+  tasks: 
+  - name: Install ftp, telnet, htop
+    yum: 
+      name: '{{ item }}'
+      state: present
+    loop:
+      - ftp
+      - telnet
+      - htop
