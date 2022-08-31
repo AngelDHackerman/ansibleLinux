@@ -1,0 +1,12 @@
+---
+- name: Create users trough loop
+  hosts: all
+
+  tasks: 
+    - name: Create users
+      user:
+        name: "{{ item }}"  # ? item is the iterable variable for the loop below.
+      loop:
+        - Jerry
+        - Kramer
+        - Elaine 
