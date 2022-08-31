@@ -1,0 +1,15 @@
+
+# String/words can be encripted within a playbook
+# You must type one of this commands in order to encrypt a string or all the file:
+# ? ansible-vault encrypt_string httpd
+# ? ansible-vault create/encrypt nameOfFile.yml
+
+
+# This is how it looks a encrypte file/word:
+
+# 1. you use the command: ansible-vault encrypt_string wordToEncrypt
+# 2. In a playbook previously wrote you copy and paste the output of the last command, in the "vars: secret:" section
+
+# 3. you can see all this in the encryptPlaybook.yml
+# 4. in order to run the playbook use the command:
+# ? ansible-playbook nameOfYourFile.yml --ask-vault-pass
