@@ -1,0 +1,25 @@
+
+# In order to create a file with ansible-vault you must type in the control node:
+# ? ansible-vault create nameOfPlaybook.yml
+
+# Then to execute it you must type:
+# ? ansible-playbook nameOfPlaybook.yml --ask-vault-pass
+
+# To view a vaulted file:
+# ? ansible-vault view nameOfPlaybook.yml
+
+# To edit a vaulted fiel:
+# ? ansible-vault edit nameOfPlaybook.yml
+
+# To get a list of options
+# ? ansible-vault --help
+
+---
+- name: Install httpd package
+  hosts: localhost
+
+  tasks:
+  - name: Install package
+    yum:
+      name: httpd
+      state: present
