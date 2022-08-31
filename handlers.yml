@@ -1,0 +1,26 @@
+---
+- name: Verify apache installation
+  hosts: localhost
+  tasks:
+  - name: Ensure apache is at latest version
+    yum: 
+      name: httpd
+      state: latest  # this check if the package is at the lastest version
+
+  - name: Copy updated apache config file
+    copy: 
+      src: /etc/httpd/conf/httpd.conf
+      dest: /tmp/httpd.conf
+    notify:
+    - Restart apache  # ? This will call the handler located at the end of the playbook.
+
+  - name: Ensure apache is running 
+    service: 
+      name: httpd
+      state: started
+
+  handlers:  # ? this is called by the "- Restart apache" above.
+    - name: Restart apache
+      service: 
+        name: httpd
+        state: restarted
