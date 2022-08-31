@@ -1,0 +1,23 @@
+
+# Gather list of facts of host (the built-in variable)
+# ? ansible localhost -m setup
+
+# this is how you see the Os family of the host
+# ? ansible localhost -m setup | grep family
+
+---
+- name: Install Apache WebServer
+  hosts: all
+
+  tasks: 
+    - name: Install Apache on Ubuntu Server
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Ubuntu"  # ? this is the ansible condition, and will be skiped if fails. 
+
+    - name: Install Apache on CestOs Server
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
