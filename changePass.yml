@@ -1,15 +1,32 @@
 # todo: Ansible does not allow us to pass a cleartext password through the user module 
-# ? use this command in control node: ansible-playbook changepass.yml --extra-vars newpassword=abc123. abc123 is the current password that will be set.
+# ? use this command in control node: ansible-playbook changePass.yml --extra-vars password=abc123. abc123 is the current password that will be set.
 # also do this: pip install passlib
 
 
 ---
 - name: 'Add or update user password'
   hosts: all
+  vars:
+    password: password
 
   tasks:
-  - name: 'Change "george" password'
-    ansible.builtin.user:  # ? this module is used to change the users settings
-      name: 'george'
-      update_password: 'always'
-      password: " {{ newpassword | password_hash('sha512') }} "  # ! the first 'newpassword' is a variable, it can be any other name. The second one 'password_hash('sha512') is the encryption used 
+  - name: Create a User.
+    user:
+      name: george
+      state: present
+      password: "{{ password | password_hash('sha512') }}"
+
+
+
+
+
+# ---
+# - name: 'Add or update user password'
+#   hosts: all
+
+#   tasks:
+#   - name: 'Change "george" password'
+#     ansible.builtin.user:  # ? this module is used to change the users settings
+#       name: 'george'
+#       update_password: 'always'
+#       password: " {{ newpassword | password_hash('sha512') }} "  # ! the first 'newpassword' is a variable, it can be any other name. The second one 'password_hash('sha512') is the encryption used 
